@@ -38,7 +38,7 @@
     }
 
     /* ===================================================
-       ۱. کارت اصلی چاپی (دقیقاً مشابه عکس اول)
+       ۱. کارت اصلی چاپی (کاملاً منطبق بر عکس اول)
        =================================================== */
     .wedding-card {
       position: absolute;
@@ -150,13 +150,12 @@
       transform: translateY(-2px);
     }
 
-    /* وسط‌چین کردن کامل و دقیق نام خانوادگی */
     .family-subtitle {
       direction: ltr;
       font-family: 'Cinzel', serif;
       font-size: clamp(9px, 1.4vh, 12px);
       letter-spacing: 2.5px;
-      text-indent: 2.5px; /* جبران فاصله حرف آخر برای تراز دقیق وسط */
+      text-indent: 2.5px;
       color: #222;
       font-weight: 600;
       text-align: center;
@@ -226,17 +225,17 @@
     }
 
     /* ===================================================
-       ۲. پاکت کالک، مرواریدها و موم
+       ۲. پاکت کالک مات دقیقاً طبق عکس واقعی
        =================================================== */
     .envelope-flap {
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 50.4%;
+      width: 50.3%;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(6px) saturate(110%);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.73);
+      backdrop-filter: blur(7px) saturate(110%);
+      -webkit-backdrop-filter: blur(7px);
       border: 1px solid rgba(255, 255, 255, 0.9);
       box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
       transition: transform 1.25s cubic-bezier(0.35, 1.05, 0.35, 1), opacity 0.8s ease;
@@ -247,93 +246,92 @@
     .flap-left {
       left: 0;
       transform-origin: left center;
-      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .flap-right {
       right: 0;
       transform-origin: right center;
-      border-left: 1px solid rgba(0, 0, 0, 0.12);
+      border-left: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    /* مرواریدهای روی پاکت کالک */
+    /* ===================================================
+       ۳. مرواریدها (دقیقاً ۱۰ عدد و در موقعیت‌های واقعی)
+       =================================================== */
     .pearl {
       position: absolute;
-      width: clamp(8px, 1.3vh, 11px);
-      height: clamp(8px, 1.3vh, 11px);
+      width: clamp(8.5px, 1.35vh, 11.5px);
+      height: clamp(8.5px, 1.35vh, 11.5px);
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f4f4f4 40%, #cccccc 80%, #999999 100%);
-      box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+      background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f6f6f6 38%, #d2d2d2 75%, #9e9e9e 100%);
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.32);
       z-index: 12;
       pointer-events: none;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    .p-top-right { top: 12px; right: 12px; }
-    .p-top-center { top: 12px; left: 50%; transform: translateX(-50%); }
-    .p-top-left { top: 12px; left: 12px; }
+    /* ۳ مروارید لبه سمت راست پاکت */
+    .p-right-top { top: 16px; right: 14px; }
+    .p-right-mid { top: 50%; right: 14px; transform: translateY(-50%); }
+    .p-right-bottom { bottom: 16px; right: 14px; }
 
-    .p-bottom-right { bottom: 12px; right: 12px; }
-    .p-bottom-center { bottom: 12px; left: 50%; transform: translateX(-50%); }
-    .p-bottom-left { bottom: 12px; left: 12px; }
+    /* ۳ مروارید لبه سمت چپ پاکت */
+    .p-left-top { top: 16px; left: 14px; }
+    .p-left-mid { top: 50%; left: 14px; transform: translateY(-50%); }
+    .p-left-bottom { bottom: 16px; left: 14px; }
 
-    .p-flap-mid-right { top: 38%; right: 28%; }
-    .p-flap-mid-left { top: 62%; left: 28%; }
+    /* ۲ مروارید روی عکس در نیمه بالا */
+    .p-photo-left { top: 38%; left: 30%; }
+    .p-photo-right { top: 38%; right: 30%; }
 
-    /* مهر و موم سفید شیری با طرح شاخه زیتون */
+    /* ۲ مروارید روی متن‌ها در نیمه پایین */
+    .p-text-left { top: 64%; left: 30%; }
+    .p-text-right { top: 64%; right: 30%; }
+
+    /* ===================================================
+       ۴. موم مهری طبیعی، بدون طرح با لبه‌های نامتقارن
+       =================================================== */
     .wax-seal {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: clamp(62px, 9.5vh, 78px);
-      height: clamp(62px, 9.5vh, 78px);
+      width: clamp(66px, 10.5vh, 84px);
+      height: clamp(66px, 10.5vh, 84px);
       transform: translate(-50%, -50%);
       z-index: 20;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 51% 49% 48% 52% / 52% 48% 52% 48%;
-      background: radial-gradient(circle at 38% 35%, #ffffff 0%, #faf8f5 42%, #e5e0d7 82%, #ccc5ba 100%);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28),
-                  inset 0 2px 4px rgba(255, 255, 255, 0.9),
-                  inset 0 -3px 5px rgba(0, 0, 0, 0.15);
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      /* لبه‌های نامتقارن و ذوب‌شده طبیعی موم */
+      border-radius: 43% 57% 49% 51% / 54% 45% 55% 46%;
+      background: radial-gradient(circle at 40% 35%, #ffffff 0%, #fbf9f6 40%, #e6e1d7 78%, #ccc5b8 100%);
+      box-shadow: 
+        0 8px 22px rgba(0, 0, 0, 0.32),
+        inset 2px 3px 6px rgba(255, 255, 255, 0.95),
+        inset -3px -4px 7px rgba(0, 0, 0, 0.16);
+      transition: transform 0.4s ease, opacity 0.5s ease;
     }
 
     .wax-seal:hover {
-      transform: translate(-50%, -50%) scale(1.04);
+      transform: translate(-50%, -50%) scale(1.035);
     }
 
-    /* حاشیه دایره‌ای فرورفته مهر */
-    .seal-inner {
-      width: 72%;
-      height: 72%;
+    /* فرورفتگی گردِ جای مهر (کاملاً ساده، صیقلی و بدون هرگونه طرح گرافیکی) */
+    .seal-pressed-bed {
+      width: 70%;
+      height: 70%;
       border-radius: 50%;
-      border: 1.5px solid rgba(175, 170, 158, 0.65);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.7) 0%, rgba(225,220,210,0.3) 100%);
-      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.12), 
-                  0.5px 0.5px 1px rgba(255, 255, 255, 0.9);
-    }
-
-    /* وکتور شاخه گیاهی با برجستگی سه‌بعدی روی موم */
-    .seal-emboss-svg {
-      width: 65%;
-      height: 65%;
-      fill: none;
-      stroke: #a8a294;
-      stroke-width: 1.6;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.95))
-              drop-shadow(-0.8px -0.8px 0px rgba(120, 115, 105, 0.5));
+      background: radial-gradient(circle at 45% 40%, #faf8f5 0%, #ece8df 65%, #ddd7cc 100%);
+      box-shadow: 
+        inset 2px 3px 6px rgba(0, 0, 0, 0.2),
+        inset -1px -1px 3px rgba(255, 255, 255, 0.8),
+        0 1px 2px rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(185, 178, 166, 0.5);
     }
 
     /* ===================================================
-       ۳. انیمیشن باز شدن کارت و پاکت
+       ۵. انیمیشن باز شدن کارت
        =================================================== */
     .card-scene.opened .flap-left {
       transform: rotateY(-115deg);
@@ -351,10 +349,10 @@
       pointer-events: none;
     }
 
-    /* حذف کامل مرواریدها به محض باز شدن پاکت */
+    /* حذف کامل هر ۱۰ مروارید با باز شدن پاکت */
     .card-scene.opened .pearl {
       opacity: 0;
-      transform: scale(0.3);
+      transform: scale(0.2);
       pointer-events: none;
     }
   </style>
@@ -373,7 +371,6 @@
 
       <!-- قاب عکس با انحنای هلالی -->
       <div class="photo-frame">
-        <!-- عکس در گیت‌هاب باید کنار همین فایل با نام photo.jpg باشد -->
         <img src="./photo.PNG" alt="عروس و داماد">
       </div>
 
@@ -427,28 +424,28 @@
     <!-- لنگه راست پاکت کالک مات -->
     <div class="envelope-flap flap-right"></div>
 
-    <!-- مرواریدهای روی پاکت کالک -->
-    <div class="pearl p-top-right"></div>
-    <div class="pearl p-top-center"></div>
-    <div class="pearl p-top-left"></div>
+    <!-- دقیقاً ۱۰ مروارید طبق پاکت واقعی: -->
+    <!-- ۳ مروارید لبه راست -->
+    <div class="pearl p-right-top"></div>
+    <div class="pearl p-right-mid"></div>
+    <div class="pearl p-right-bottom"></div>
 
-    <div class="pearl p-bottom-right"></div>
-    <div class="pearl p-bottom-center"></div>
-    <div class="pearl p-bottom-left"></div>
+    <!-- ۳ مروارید لبه چپ -->
+    <div class="pearl p-left-top"></div>
+    <div class="pearl p-left-mid"></div>
+    <div class="pearl p-left-bottom"></div>
 
-    <div class="pearl p-flap-mid-right"></div>
-    <div class="pearl p-flap-mid-left"></div>
+    <!-- ۲ مروارید روی عکس بالا -->
+    <div class="pearl p-photo-left"></div>
+    <div class="pearl p-photo-right"></div>
 
-    <!-- مهر و موم سفید با طرح شاخه زیتون -->
+    <!-- ۲ مروارید روی متن‌های پایین -->
+    <div class="pearl p-text-left"></div>
+    <div class="pearl p-text-right"></div>
+
+    <!-- موم مهری سفید، بدون طرح و با لبه‌های نامتقارن طبیعی -->
     <div class="wax-seal" id="waxSeal">
-      <div class="seal-inner">
-        <svg class="seal-emboss-svg" viewBox="0 0 24 24">
-          <path d="M6 19 C9 15 13 11 18 5" />
-          <path d="M11 13 C9.5 11.5 9 9.5 10.5 8.5 C12 7.5 13.5 9.5 13 11 Z" fill="#b3ad9f" />
-          <path d="M14 10 C13.5 8 14 6 15.5 5.5 C17 5 17.5 7 16.5 8.5 Z" fill="#b3ad9f" />
-          <path d="M8 16 C6.5 15 6 13 7.5 12 C9 11 10 13 9.5 14.5 Z" fill="#b3ad9f" />
-        </svg>
-      </div>
+      <div class="seal-pressed-bed"></div>
     </div>
 
   </div>
@@ -457,7 +454,7 @@
     const cardScene = document.getElementById('cardScene');
     const waxSeal = document.getElementById('waxSeal');
 
-    // باز شدن پاکت و ناپدید شدن مرواریدها با لمس موم
+    // باز شدن پاکت و محو شدن کامل پاکت و مرواریدها با لمس موم
     waxSeal.addEventListener('click', () => {
       cardScene.classList.add('opened');
     });
