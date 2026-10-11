@@ -38,7 +38,7 @@
     }
 
     /* ===================================================
-       ۱. کارت اصلی چاپی (کاملاً منطبق بر عکس اول)
+       ۱. کارت اصلی چاپی (دقیقاً مشابه عکس اول)
        =================================================== */
     .wedding-card {
       position: absolute;
@@ -144,10 +144,14 @@
       line-height: 1;
     }
 
-    .heart-icon {
-      font-size: clamp(16px, 2.5vh, 22px);
-      color: #111;
-      transform: translateY(-2px);
+    /* وکتور قلب خطی ظریف (دقیقاً مثل کارت اصلی بدون به‌هم‌ریختگی فونت) */
+    .heart-svg {
+      width: clamp(17px, 2.7vh, 23px);
+      height: clamp(17px, 2.7vh, 23px);
+      stroke: #111;
+      stroke-width: 1.6;
+      fill: none;
+      transform: translateY(-1px);
     }
 
     .family-subtitle {
@@ -256,7 +260,7 @@
     }
 
     /* ===================================================
-       ۳. مرواریدها (دقیقاً ۱۰ عدد و در موقعیت‌های واقعی)
+       ۳. مرواریدها (دقیقاً ۱۰ عدد در موقعیت‌های واقعی)
        =================================================== */
     .pearl {
       position: absolute;
@@ -270,26 +274,26 @@
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    /* ۳ مروارید لبه سمت راست پاکت */
+    /* ۳ مروارید لبه راست */
     .p-right-top { top: 16px; right: 14px; }
     .p-right-mid { top: 50%; right: 14px; transform: translateY(-50%); }
     .p-right-bottom { bottom: 16px; right: 14px; }
 
-    /* ۳ مروارید لبه سمت چپ پاکت */
+    /* ۳ مروارید لبه چپ */
     .p-left-top { top: 16px; left: 14px; }
     .p-left-mid { top: 50%; left: 14px; transform: translateY(-50%); }
     .p-left-bottom { bottom: 16px; left: 14px; }
 
-    /* ۲ مروارید روی عکس در نیمه بالا */
+    /* ۲ مروارید روی عکس بالا */
     .p-photo-left { top: 38%; left: 30%; }
     .p-photo-right { top: 38%; right: 30%; }
 
-    /* ۲ مروارید روی متن‌ها در نیمه پایین */
+    /* ۲ مروارید روی متن‌های پایین */
     .p-text-left { top: 64%; left: 30%; }
     .p-text-right { top: 64%; right: 30%; }
 
     /* ===================================================
-       ۴. موم مهری طبیعی، بدون طرح با لبه‌های نامتقارن
+       ۴. موم مهری سفید، بدون طرح با لبه‌های نامتقارن
        =================================================== */
     .wax-seal {
       position: absolute;
@@ -303,7 +307,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* لبه‌های نامتقارن و ذوب‌شده طبیعی موم */
       border-radius: 43% 57% 49% 51% / 54% 45% 55% 46%;
       background: radial-gradient(circle at 40% 35%, #ffffff 0%, #fbf9f6 40%, #e6e1d7 78%, #ccc5b8 100%);
       box-shadow: 
@@ -317,7 +320,6 @@
       transform: translate(-50%, -50%) scale(1.035);
     }
 
-    /* فرورفتگی گردِ جای مهر (کاملاً ساده، صیقلی و بدون هرگونه طرح گرافیکی) */
     .seal-pressed-bed {
       width: 70%;
       height: 70%;
@@ -349,7 +351,7 @@
       pointer-events: none;
     }
 
-    /* حذف کامل هر ۱۰ مروارید با باز شدن پاکت */
+    /* محو شدن مرواریدها */
     .card-scene.opened .pearl {
       opacity: 0;
       transform: scale(0.2);
@@ -358,6 +360,9 @@
   </style>
 </head>
 <body>
+
+  <!-- فایل صوتی موزیک در گیت‌هاب -->
+  <audio id="weddingMusic" src="./music.mp3" preload="auto"></audio>
 
   <div class="card-scene" id="cardScene">
 
@@ -369,7 +374,7 @@
         <div class="party-text">OUR WEDDING PARTY</div>
       </div>
 
-      <!-- قاب عکس با انحنای هلالی -->
+      <!-- قاب عکس (نام فایل دقیقاً طبق photo.PNG در گیت‌هاب شما) -->
       <div class="photo-frame">
         <img src="./photo.PNG" alt="عروس و داماد">
       </div>
@@ -378,11 +383,16 @@
         
         <div class="poem">از یک قلب کودکی، تا یک عمر عاشقی</div>
 
-        <!-- نام‌ها و نام خانوادگی کاملاً وسط‌چین -->
+        <!-- نام‌ها با قلب خطی دقیق -->
         <div class="names-block">
           <div class="names-row">
             <span class="name-english">Zahra</span>
-            <span class="heart-icon">&#9825;</span>
+            
+            <!-- وکتور قلب خطی دست‌ساز -->
+            <svg class="heart-svg" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+
             <span class="name-english">Alireza</span>
           </div>
           <div class="family-subtitle">ADEL-RUSTAMZADEH</div>
@@ -424,26 +434,22 @@
     <!-- لنگه راست پاکت کالک مات -->
     <div class="envelope-flap flap-right"></div>
 
-    <!-- دقیقاً ۱۰ مروارید طبق پاکت واقعی: -->
-    <!-- ۳ مروارید لبه راست -->
+    <!-- ۱۰ مروارید دقیقاً طبق پاکت واقعی -->
     <div class="pearl p-right-top"></div>
     <div class="pearl p-right-mid"></div>
     <div class="pearl p-right-bottom"></div>
 
-    <!-- ۳ مروارید لبه چپ -->
     <div class="pearl p-left-top"></div>
     <div class="pearl p-left-mid"></div>
     <div class="pearl p-left-bottom"></div>
 
-    <!-- ۲ مروارید روی عکس بالا -->
     <div class="pearl p-photo-left"></div>
     <div class="pearl p-photo-right"></div>
 
-    <!-- ۲ مروارید روی متن‌های پایین -->
     <div class="pearl p-text-left"></div>
     <div class="pearl p-text-right"></div>
 
-    <!-- موم مهری سفید، بدون طرح و با لبه‌های نامتقارن طبیعی -->
+    <!-- موم مهری سفید، بدون طرح و با لبه‌های طبیعی -->
     <div class="wax-seal" id="waxSeal">
       <div class="seal-pressed-bed"></div>
     </div>
@@ -453,10 +459,18 @@
   <script>
     const cardScene = document.getElementById('cardScene');
     const waxSeal = document.getElementById('waxSeal');
+    const music = document.getElementById('weddingMusic');
 
-    // باز شدن پاکت و محو شدن کامل پاکت و مرواریدها با لمس موم
+    // با لمس موم: پاکت باز می‌شود و آهنگ شروع به پخش می‌کند
     waxSeal.addEventListener('click', () => {
       cardScene.classList.add('opened');
+      
+      // پخش اتوماتیک موزیک با لمس کاربر
+      if (music) {
+        music.play().catch(error => {
+          console.log("پخش خودکار انجام نشد:", error);
+        });
+      }
     });
   </script>
 
